@@ -1,4 +1,19 @@
+/*<<<<<<< profile-list-components
 .sectionContainer {
   width: 100vw;
   display: flex;
+=======*/
+.container {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.container section {
+  flex: 1;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 6.25rem;
 }
