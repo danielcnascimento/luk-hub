@@ -1,0 +1,27 @@
+.container {
+  color: white;
+  margin: 1.5rem;
+}
+
+.container div {
+  background-color: #343333;
+}
+.container span {
+  display: flex;
+}
+
+.container span p {
+  margin: 0 1rem;
+}
+
+.header {
+  justify-content: space-between;
+}
+
+.header div {
+  border-radius: 10px;
+  width: 150px;
+  height: 25px;
+  margin: 5px;
+  text-align: center;
+}
