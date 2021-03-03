@@ -7,7 +7,7 @@ const List = () => {
         </div>
         <div className="content">
           <p>Daniel Nascimento</p>
-          <p>email@test.com</p>
+          <p>email@test.com.br</p>
         </div>
       </div>
     </div>
