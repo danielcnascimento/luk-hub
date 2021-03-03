@@ -11,20 +11,14 @@ export default function Home() {
         <title>Homepage | LukHub - search repositories</title>
       </Head>
       <section>
-/*  
         <div className={styles.sectionContainer}>
           <Profile />
           <RepositoryList />
         </div>
-=======
-        <div>
+
+        {/* <div>
           <SearchBox />
-        </div>
-        <div></div>
-*/
-         <div>
-          <SearchBox />
-        </div>
+        </div> */}
         <div></div>
       </section>
     </div>

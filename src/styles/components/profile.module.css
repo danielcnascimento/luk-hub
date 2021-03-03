@@ -1,6 +1,6 @@
 .container {
-  width: 20vw;
-  height: 90vh;
+  width: 30vw;
+  height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -12,7 +12,7 @@
 .imgContainer {
   width: 100px;
   height: 100px;
-  border-radius: 100px;
+  border-radius: 200px;
   background-color: white;
   margin: 1rem;
 }

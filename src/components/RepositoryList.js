@@ -14,16 +14,18 @@ const RepositoryList = () => {
         </div>
       </span>
 
-      <div>
+      <div className={styles.body}>
         <p>
           🎞️ My-Story is a M.E.R.N. project, meant to be Fullstack that allows
           you to do all CRUD operations. It's a social media app mobile-first,
           beauty, …
         </p>
       </div>
-      <div>
-        <p> last update </p>
-      </div>
+      <span className={styles.footer}>
+        <div>
+          <p> last update </p>
+        </div>
+      </span>
     </div>
   );
 };
