@@ -5,7 +5,7 @@ const SearchBox = ({ loadingRepos }) => {
   const [text, setText] = useState("");
 
   const onSearch = (text) => {
-    loadingRepos(text);
+    loadingRepos(text.target.value);
   };
 
   return (

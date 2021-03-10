@@ -17,13 +17,11 @@ export default function Home() {
     const res = await searchRepo(searchText);
     if (res && res.data) {
       setLoading(false);
-      setRepos(res.data.items);
+      setRepos(res.data);
     }
   };
 
-
   const id = 1;
-
 
   return (
     <div className={styles.container}>
@@ -34,9 +32,7 @@ export default function Home() {
         <div>
           <SearchBox loadingRepos={loadRepos} />
         </div>
-
-//         {loading ? "loading.." : <div>{JSON.stringify(repos, null, 2)}</div>}
-
+        // {loading ? "loading.." : <div>{JSON.stringify(repos, null, 2)}</div>}
         <div className={styles.secondSide}>
           <List />
           <List />
