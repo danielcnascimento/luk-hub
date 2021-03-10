@@ -1,6 +1,13 @@
 import styles from "../styles/components/SearchBox.module.css";
+import React, { useState } from "react";
 
-const SearchBox = () => {
+const SearchBox = ({ loadingRepos }) => {
+  const [text, setText] = useState("");
+
+  const onSearch = (text) => {
+    loadingRepos(text);
+  };
+
   return (
     <div className={styles.searchBoxContainer}>
       <div className={styles.heading}>
@@ -10,7 +17,7 @@ const SearchBox = () => {
         </p>
       </div>
       <div className={styles.searchInput}>
-        <input type="text" placeholder="Live Search" />
+        <input onChange={onSearch} type="text" placeholder="Live Search" />
       </div>
     </div>
   );
