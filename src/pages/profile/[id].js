@@ -3,6 +3,7 @@ import Profile from "../../components/Profile";
 import RepositoryList from "../../components/RepositoryList";
 
 const index = () => {
+
   return (
     <div className={styles.sectionContainer}>
       <Profile />
@@ -12,3 +13,4 @@ const index = () => {
 };
 
 export default index;
+

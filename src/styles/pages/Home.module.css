@@ -13,5 +13,11 @@
   flex: 1;
   display: grid;
   grid-template-rows: 1fr 1fr;
-  gap: 6.25rem;
+  gap: 2.25rem;
 }
+
+.secondSide{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  gap: 1.25rem;
+} 

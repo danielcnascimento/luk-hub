@@ -11,7 +11,7 @@ const SearchBox = ({ loadingRepos }) => {
   return (
     <div className={styles.searchBoxContainer}>
       <div className={styles.heading}>
-        <img src="search-box.svg" />
+        <img src="search-asset.svg" />
         <p>
           luk<span>HUB</span>
         </p>

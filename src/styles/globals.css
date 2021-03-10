@@ -10,11 +10,13 @@
   --gray-line: #dcdde0;
   --text: #9e9e9e;
   --text-highlight: #b3b9ff;
-  --title: #2e384d;
+  --title: #3b49e0;
   --red: #e83f5b;
-  --blue: #5965e0;
+  --blue: #3b49e0;
   --tomato: #ff6347;
   --black: #0d1117;
+  --highlight: #a9dbfc;
+  --highlight-dark: #2E384D;
 }
 
 
