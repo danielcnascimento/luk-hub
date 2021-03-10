@@ -16,10 +16,11 @@ export default function Home() {
         <div>
           <SearchBox />
         </div>
-        <div>
-          <Link href="/profile/id" as={`/profile/${id}`}>
-            <List />
-          </Link>
+        <div className={styles.secondSide}>
+          <List />
+          <List />
+          <List />
+          <List />
         </div>
       </section>
     </div>
