@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
 import List from "../components/List";
 import SearchBox from "../components/SearchBox";
 import styles from "../styles/pages/Home.module.css";
-
 import { searchRepo } from "../services/githubService";
 
 export default function Home() {
@@ -21,10 +19,6 @@ export default function Home() {
     }
   };
 
-
-  const id = 1;
-
-
   return (
     <div className={styles.container}>
       <Head>
@@ -34,15 +28,15 @@ export default function Home() {
         <div>
           <SearchBox loadingRepos={loadRepos} />
         </div>
-
-//         {loading ? "loading.." : <div>{JSON.stringify(repos, null, 2)}</div>}
-
-        <div className={styles.secondSide}>
-          <List />
-          <List />
-          <List />
-          <List />
-        </div>
+        {loading
+          ? "loading.."
+          : repos.map((repo) => {
+              return (
+                <div key={repo.id} className={styles.secondSide}>
+                  <List name={repo.name} />
+                </div>
+              );
+            })}
       </section>
     </div>
   );
