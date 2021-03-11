@@ -28,19 +28,18 @@ export default function Home() {
         <title>Homepage | LukHub - search repositories</title>
       </Head>
       <section>
-        <div>
+        <div className={styles.firstLayer}>
           <SearchBox loadingRepos={loadRepos} />
         </div>
 
-        {loading
-          ? "loading.."
-          : repos.map((repo) => {
-              return (
-                <div key={repo.id} className={styles.secondSide}>
-                  <List name={repo.name} />
-                </div>
-              );
-            })}
+
+        <div className={styles.secondLayer}>
+          {loading
+            ? "loading.."
+            : repos.map((repo) => {
+                return <List key={repo.id} repo={repo} />;
+              })}
+        </div>
 
       </section>
     </div>
