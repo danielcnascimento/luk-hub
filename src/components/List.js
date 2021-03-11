@@ -2,21 +2,23 @@ import styles from "../styles/components/List.module.css";
 import Link from "next/link";
 
 const List = (props) => {
-  const id = 1;
-
   return (
     <div>
       <div className={styles.listContainer}>
-        <header>danielcnascimento</header>
-        {/* <img src="https://github.com/danielcnascimento.png" alt="" /> */}
+        <header>{props.repo.name}</header>
+        <img src={props.repo.owner.avatar_url} alt={props.repo.owner.login} />
         <main>
-          <p>email@test.com.br</p>
+          <p>by:&nbsp; {props.repo.owner.login}</p>
           <p>
-            <span>17</span>&nbsp; repository(ies)
+            <span>{props.repo.stargazers_count}</span>&nbsp; star(s)
           </p>
-          <span>javascript</span>
+          {props.repo.language ? (
+            <span>{props.repo.language}</span>
+          ) : (
+            <span>not available</span>
+          )}
         </main>
-        <Link href="/profile/id" as={`/profile/${id}`}>
+        <Link href="/profile/id" as={`/profile/${props.repo.owner.id}`}>
           Visit
         </Link>
       </div>

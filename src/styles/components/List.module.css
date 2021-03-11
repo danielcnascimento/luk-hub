@@ -1,7 +1,7 @@
 .listContainer {
     max-width: 20rem;
+    height: 25rem;
     width: 100%;
-    height: 100%;
     padding: 1rem 1.25rem;
     display: flex;
     align-items: center;
@@ -30,8 +30,14 @@
 
 
 .listContainer header {
+    width: 100%;
+    height: 5rem;
     padding: 0rem 2rem 0.7rem;
     border-bottom: 1px solid var(--gray-line);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     font-size: 1.25rem;
     font-weight: 600;
