@@ -18,7 +18,7 @@ const List = (props) => {
             <span>not available</span>
           )}
         </main>
-        <Link href="/profile/id" as={`/profile/${props.repo.owner.id}`}>
+        <Link href="/profile/id" as={`/profile/${props.repo.owner.login}`}>
           Visit
         </Link>
       </div>
