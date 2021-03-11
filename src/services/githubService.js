@@ -1,4 +1,3 @@
-import axios from "axios";
 import { axiosCancelable } from "../helper/axios.helper";
 
 const axiosConfig = {
@@ -10,6 +9,5 @@ const axiosConfig = {
 };
 
 export const searchRepo = (query) => {
-  //return axios.get(`search/repositories?q=${query}`, axiosConfig)
   return axiosCancelable(`search/repositories?q=${query}`, axiosConfig);
 };
