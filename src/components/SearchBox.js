@@ -1,16 +1,23 @@
 import styles from "../styles/components/SearchBox.module.css";
+import React, { useState } from "react";
 
-const SearchBox = () => {
+const SearchBox = ({ loadingRepos }) => {
+  const [text, setText] = useState("");
+
+  const onSearch = (text) => {
+    loadingRepos(text.target.value);
+  };
+
   return (
     <div className={styles.searchBoxContainer}>
       <div className={styles.heading}>
-        <img src="search-box.svg" />
+        <img src="search-asset.svg" />
         <p>
           luk<span>HUB</span>
         </p>
       </div>
       <div className={styles.searchInput}>
-        <input type="text" placeholder="Live Search" />
+        <input onChange={onSearch} type="text" placeholder="Live Search" />
       </div>
     </div>
   );

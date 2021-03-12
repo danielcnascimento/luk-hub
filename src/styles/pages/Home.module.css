@@ -1,8 +1,4 @@
-/*<<<<<<< profile-list-components
-.sectionContainer {
-  width: 100vw;
-  display: flex;
-=======*/
+
 .container {
   max-width: 1050px;
   margin: 0 auto;
@@ -12,8 +8,24 @@
 }
 
 .container section {
-  flex: 1;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  gap: 6.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+.container section .firstLayer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container section .secondLayer{
+  padding-top: 5rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  gap: 1.25rem;
+}
+
