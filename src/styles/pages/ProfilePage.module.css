@@ -1,4 +1,7 @@
 .sectionContainer {
-    width: 100vm;
-    display: flex;
+  width: 100vm;
+  display: flex;
+}
+.repoContainer {
+  flex: 1;
 }
