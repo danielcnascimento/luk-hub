@@ -29,3 +29,73 @@
   gap: 1.25rem;
 }
 
+/* MENU ICON */
+
+.menu {
+  width: 5rem;
+  height: 5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.menu img {
+  width: 2rem;
+  height: auto;
+}
+
+/* MENU ICON - EFEITO RIPPLE */
+
+.ripple {
+  background-position: center;
+  transition: background 0.5s;
+}
+.ripple:hover {
+  background: rgba(255, 255, 255, 0.1)
+    radial-gradient(circle, transparent 1%, rgba(255, 255, 255, 0.3) 1%)
+    center/15000%;
+}
+.ripple:active {
+  background-color: rgba(255, 255, 255, 0.3);
+  background-size: 100%;
+
+  transition: background 0s;
+}
+
+/* DRAWER */
+
+.container aside {
+  max-width: 23rem;
+  width: 90%;
+  height: 100vh;
+
+  color: #faffff;
+  background: #494949;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  flex-direction: column;
+
+  z-index: 1500;
+
+  transition: all 300ms ease-in-out;
+}
+
+.container aside div img {
+  width: 2rem;
+  height: auto;
+}

@@ -1,10 +1,8 @@
 import styles from "../../styles/pages/ProfilePage.module.css";
 import Profile from "../../components/Profile";
 import RepositoryList from "../../components/RepositoryList";
-import axios from "axios";
 
 const index = ({ data }) => {
-  console.log(data);
   return (
     <div className={styles.sectionContainer}>
       <Profile />

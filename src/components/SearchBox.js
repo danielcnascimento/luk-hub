@@ -1,7 +1,7 @@
 import styles from "../styles/components/SearchBox.module.css";
 import React, { useState } from "react";
 
-const SearchBox = ({ loadingRepos }) => {
+const SearchBox = ({ loadingRepos, closeDrawer }) => {
   const [text, setText] = useState("");
 
   const onSearch = (text) => {
@@ -17,7 +17,14 @@ const SearchBox = ({ loadingRepos }) => {
         </p>
       </div>
       <div className={styles.searchInput}>
-        <input onChange={onSearch} type="text" placeholder="Live Search" />
+        <input
+          onChange={onSearch}
+          onClick={() => {
+            closeDrawer(false);
+          }}
+          type="text"
+          placeholder="Live Search"
+        />
       </div>
     </div>
   );
