@@ -5,12 +5,14 @@ import SearchBox from "../components/SearchBox";
 import styles from "../styles/pages/Home.module.css";
 import { searchRepo } from "../services/githubService";
 
-export default function Home() {
+export default function Home({ git_users }) {
   const [loading, setLoading] = useState(false);
   const [repos, setRepos] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log(repos);
+  const get_git_users = JSON.parse(git_users);
+
+  console.log(get_git_users);
 
   const loadRepos = async (searchText) => {
     setLoading(true);
@@ -44,11 +46,16 @@ export default function Home() {
           <img src="close-icon-menu.svg" />
         </div>
         <div className={styles.drawerTitle}>
-          <p>Voce visitou recentemente...</p>
+          <p>You recently visited ...</p>
         </div>
-        <div className={styles.drawerList}>
-          <h2>Ninguem</h2>
-        </div>
+
+        {get_git_users ? (
+          get_git_users.map((user, index) => {
+            return <p key={index}> {user.login} </p>;
+          })
+        ) : (
+          <p>Ops.. Nobody!</p>
+        )}
       </aside>
       <section>
         <div className={styles.firstLayer}>
@@ -65,3 +72,11 @@ export default function Home() {
     </div>
   );
 }
+
+export const getServerSideProps = async (ctx) => {
+  const { git_users } = await ctx.req.cookies;
+
+  return {
+    props: { git_users },
+  };
+};

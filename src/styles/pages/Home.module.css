@@ -77,8 +77,9 @@
   width: 90%;
   height: 100vh;
 
-  color: #faffff;
-  background: #494949;
+  color: var(--white);
+  background: var(--highlight-dark-opacity);
+  border-right: 3px solid var(--blue);
 
   position: fixed;
   top: 0;
