@@ -4,13 +4,14 @@ import List from "../components/List";
 import SearchBox from "../components/SearchBox";
 import styles from "../styles/pages/Home.module.css";
 import { searchRepo } from "../services/githubService";
+import Link from "next/link";
 
-export default function Home({ git_users }) {
+export default function Home({ recent_visited }) {
   const [loading, setLoading] = useState(false);
   const [repos, setRepos] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  const get_git_users = JSON.parse(git_users);
+  let get_git_users = recent_visited.length ? JSON.parse(recent_visited) : [];
 
   console.log(get_git_users);
 
@@ -36,6 +37,7 @@ export default function Home({ git_users }) {
       >
         <img src="history.svg" />
       </div>
+
       <aside style={{ left: isOpen ? 0 : "-25rem" }}>
         <div
           className={`${styles.menu} ${styles.ripple}`}
@@ -49,14 +51,29 @@ export default function Home({ git_users }) {
           <p>You recently visited ...</p>
         </div>
 
-        {get_git_users ? (
+        {get_git_users.length > 0 ? (
           get_git_users.map((user, index) => {
-            return <p key={index}> {user.login} </p>;
+            return (
+              <div
+                key={index}
+                className={styles.userContainer}
+                data-tooltip={`click on ${user.login} pic to check.`}
+              >
+                <Link href="profile/id" as={`profile/${user.login}`}>
+                  <img src={user.avatar} />
+                </Link>
+                <div>
+                  <strong>{user.name}</strong>
+                  <span>{user.login}</span>
+                </div>
+              </div>
+            );
           })
         ) : (
           <p>Ops.. Nobody!</p>
         )}
       </aside>
+
       <section>
         <div className={styles.firstLayer}>
           <SearchBox loadingRepos={loadRepos} closeDrawer={setIsOpen} />
@@ -74,9 +91,10 @@ export default function Home({ git_users }) {
 }
 
 export const getServerSideProps = async (ctx) => {
-  const { git_users } = await ctx.req.cookies;
+  let { git_users } = ctx.req.cookies;
+  let recent_visited = git_users ? git_users : [];
 
   return {
-    props: { git_users },
+    props: { recent_visited },
   };
 };
