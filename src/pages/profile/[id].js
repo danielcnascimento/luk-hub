@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import styles from "../../styles/pages/ProfilePage.module.css";
 import Profile from "../../components/Profile";
 import RepositoryList from "../../components/RepositoryList";
-import axios from "axios";
+import { useRouter } from "next/router";
 
 const index = ({ data }) => {
   const [repos, setRepos] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     if (data) {
@@ -24,7 +25,13 @@ const index = ({ data }) => {
 
   return (
     <div className={styles.sectionContainer}>
-      <Profile data={data} />
+      <div>
+        <Profile data={data} />
+        <div onClick={() => router.back()} className={styles.returnContainer}>
+          <h4 className={styles.return}>return now</h4>
+        </div>
+      </div>
+
       <div className={styles.repoContainer}>
         {repos.map((repo) => (
           <div key={repo.id}>
