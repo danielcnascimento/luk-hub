@@ -1,10 +1,13 @@
 .container {
   color: white;
   margin: 1.5rem;
+  padding-bottom: 3px;
+  border-bottom: 3px solid var(--highlight-dark);
 }
 
 .container div {
-  background-color: #343333;
+  background-color: var(--highlight-dark);
+  border: 3px solid var(--blue);
 }
 .container span {
   display: flex;
@@ -21,7 +24,7 @@
 .header div {
   border-radius: 10px;
   width: 150px;
-  height: 25px;
+  height: 30px;
   margin: 5px;
   text-align: center;
 }
@@ -44,6 +47,6 @@
   margin: 5px;
   text-align: center;
   border-radius: 10px;
-  width: 150px;
-  height: 25px;
+  width: 250px;
+  height: 30px;
 }

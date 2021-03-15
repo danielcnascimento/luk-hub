@@ -1,11 +1,15 @@
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/pages/ProfilePage.module.css";
 import Profile from "../../components/Profile";
 import RepositoryList from "../../components/RepositoryList";
+import { useRouter } from "next/router";
 import COOKIE from "js-cookie";
 import { useEffect } from "react";
 
 const index = ({ data, setGitUsers }) => {
   let get_git_users = setGitUsers.length ? JSON.parse(setGitUsers) : [];
+  const [repos, setRepos] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     let user_data = {
@@ -21,10 +25,35 @@ const index = ({ data, setGitUsers }) => {
     COOKIE.set("git_users", git_users);
   }, [data]);
 
+  useEffect(() => {
+    if (data) {
+      fetchRepos(data.login);
+    }
+  }, [data]);
+
+  const fetchRepos = async (name) => {
+    const res = await fetch(`https://api.github.com/users/${name}/repos`);
+    const data = await res.json();
+
+    setRepos(data);
+  };
+
   return (
     <div className={styles.sectionContainer}>
-      <Profile />
-      <RepositoryList />
+      <div>
+        <Profile data={data} />
+        <div onClick={() => router.back()} className={styles.returnContainer}>
+          <h4 className={styles.return}>return now</h4>
+        </div>
+      </div>
+
+      <div className={styles.repoContainer}>
+        {repos.map((repo) => (
+          <div key={repo.id}>
+            <RepositoryList repo={repo} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

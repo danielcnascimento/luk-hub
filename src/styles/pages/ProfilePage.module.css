@@ -1,4 +1,19 @@
 .sectionContainer {
-    width: 100vm;
-    display: flex;
+  width: 100vm;
+  display: flex;
+}
+.repoContainer {
+  flex: 1;
+}
+.returnContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.return{
+  border-bottom: 1px solid white;
+  color:white;
+  width:100px;
+  text-align: center;
 }

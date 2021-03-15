@@ -1,22 +1,22 @@
 import React from "react";
 import styles from "../styles/components/Profile.module.css";
 
-const Profile = () => {
+const Profile = ({ data }) => {
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
-        <img />
+        <img className={styles.image} src={data.avatar_url} />
       </div>
       <div className={styles.id}>
         <p>ID</p>
         <span>:</span>
-        <p>hsk1jk1j</p>
+        <p>{data.id}</p>
       </div>
-      <Title title="name" data="Hessa" />
-      <Title title="email" data="example@email.com" />
-      <Title title="location" data="location" />
-      <Title title="followers" data={50} />
-      <Title title="public repositories" data={1} />
+      <Title title="name" data={data.name} />
+      <Title title="email" data={data.email} />
+      <Title title="location" data={data.location} />
+      <Title title="followers" data={data.follower} />
+      <Title title="public repositories" data={data.public_repos} />
     </div>
   );
 };
