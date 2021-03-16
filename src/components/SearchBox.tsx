@@ -1,10 +1,13 @@
 import styles from "../styles/components/SearchBox.module.css";
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
-const SearchBox = ({ loadingRepos, closeDrawer }) => {
-  const [text, setText] = useState("");
+interface SearchBoxProps {
+  loadingRepos: Function;
+  closeDrawer: Dispatch<SetStateAction<Boolean>>;
+}
 
-  const onSearch = (text) => {
+const SearchBox = ({ loadingRepos, closeDrawer }: SearchBoxProps) => {
+  const onSearch = (text: React.ChangeEvent<HTMLInputElement>) => {
     loadingRepos(text.target.value);
   };
 

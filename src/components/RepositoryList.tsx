@@ -2,14 +2,17 @@ import moment from "moment";
 import React, { useState, useEffect } from "react";
 import styles from "../styles/components/RepositoryList.module.css";
 
-const RepositoryList = ({ repo }) => {
-  const [createAt, setCreatedAt] = useState("");
-  console.log(repo);
-  const [update, setUpdate] = useState("");
+interface RepositoryListProps {
+  repo: RepoType;
+}
+const RepositoryList = ({ repo }: RepositoryListProps) => {
+  const [createAt, setCreatedAt] = useState<string>("");
+  const [update, setUpdate] = useState<string>("");
 
   useEffect(() => {
     getDates();
   }, [repo]);
+
   const getDates = () => {
     const creatDate = moment(repo.created_at).format("ll");
     const UpdateDate = moment(repo.updated_at).format("ll");
@@ -17,6 +20,7 @@ const RepositoryList = ({ repo }) => {
     setCreatedAt(creatDate);
     setUpdate(UpdateDate);
   };
+
   return (
     <div className={styles.container}>
       <span className={styles.header}>

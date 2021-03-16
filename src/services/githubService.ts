@@ -1,6 +1,7 @@
 import { axiosCancelable } from "../helper/axios.helper";
+import { AxiosRequestConfig } from "axios";
 
-const axiosConfig = {
+const axiosConfig: AxiosRequestConfig = {
   baseURL: "https://api.github.com/",
   auth: {
     username: process.env.CLIENT_ID,
@@ -8,6 +9,6 @@ const axiosConfig = {
   },
 };
 
-export const searchRepo = (query) => {
+export const searchRepo = (query: String) => {
   return axiosCancelable(`search/repositories?q=${query}`, axiosConfig);
 };

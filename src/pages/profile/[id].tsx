@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import styles from "../../styles/pages/ProfilePage.module.css";
 import COOKIE from "js-cookie";
 import Profile from "../../components/Profile";
 import RepositoryList from "../../components/RepositoryList";
 
-const index = ({ data, setGitUsers }) => {
-  let get_git_users = setGitUsers.length ? JSON.parse(setGitUsers) : [];
-  const [repos, setRepos] = useState([]);
+interface IndexProps {
+  data: GetGitUsersType;
+  setGitUsers: string;
+}
+
+const index = ({ data, setGitUsers }: IndexProps) => {
+  let get_git_users: {}[] = setGitUsers.length ? JSON.parse(setGitUsers) : [];
+  const [repos, setRepos] = useState<RepoType[]>([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -16,7 +22,7 @@ const index = ({ data, setGitUsers }) => {
     }
 
     let user_data = {
-      avatar: data.avatar_url,
+      avatar_url: data.avatar_url,
       name: data.name,
       login: data.login,
     };
@@ -28,7 +34,7 @@ const index = ({ data, setGitUsers }) => {
     COOKIE.set("git_users", git_users);
   }, [data]);
 
-  const fetchRepos = async (name) => {
+  const fetchRepos = async (name: String) => {
     const res = await fetch(`https://api.github.com/users/${name}/repos`);
     const data = await res.json();
 
@@ -57,7 +63,10 @@ const index = ({ data, setGitUsers }) => {
 
 export default index;
 
-export const getServerSideProps = async ({ params, req }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  params,
+  req,
+}) => {
   const res = await fetch(`https://api.github.com/users/${params.id}`);
   const data = await res.json();
 

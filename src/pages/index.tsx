@@ -1,21 +1,28 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Head from "next/head";
 import List from "../components/List";
 import SearchBox from "../components/SearchBox";
 import styles from "../styles/pages/Home.module.css";
 import { searchRepo } from "../services/githubService";
+import { GetServerSideProps } from "next";
 import Link from "next/link";
 
-export default function Home({ recent_visited }) {
-  const [loading, setLoading] = useState(false);
-  const [repos, setRepos] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
+interface HomeProps {
+  recent_visited: string;
+}
 
-  let get_git_users = recent_visited.length ? JSON.parse(recent_visited) : [];
+export default function Home({ recent_visited }: HomeProps) {
+  const [loading, setLoading] = useState<boolean>(false);
+  const [repos, setRepos] = useState<ListType["repo"][]>([]);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  let get_git_users: GetGitUsersType[] = recent_visited.length
+    ? JSON.parse(recent_visited)
+    : [];
 
   console.log(get_git_users);
 
-  const loadRepos = async (searchText) => {
+  const loadRepos = async (searchText: String) => {
     setLoading(true);
     const res = await searchRepo(searchText);
     if (res && res.data) {
@@ -60,7 +67,7 @@ export default function Home({ recent_visited }) {
                 data-tooltip={`click on ${user.login} pic to check.`}
               >
                 <Link href="profile/id" as={`profile/${user.login}`}>
-                  <img src={user.avatar} />
+                  <img src={user.avatar_url} />
                 </Link>
                 <div>
                   <strong>{user.name}</strong>
@@ -90,7 +97,7 @@ export default function Home({ recent_visited }) {
   );
 }
 
-export const getServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
   let { git_users } = ctx.req.cookies;
   let recent_visited = git_users ? git_users : [];
 

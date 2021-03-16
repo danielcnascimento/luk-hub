@@ -1,11 +1,14 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
 const cancelConfig = {
   request: null,
   cancelToken: null,
 };
 
-export const axiosCancelable = async (url, config) => {
+export const axiosCancelable = async (
+  url: string,
+  config: AxiosRequestConfig
+) => {
   if (cancelConfig.request) {
     cancelConfig.request.cancel("canceled");
   }

@@ -1,7 +1,19 @@
 import React from "react";
 import styles from "../styles/components/Profile.module.css";
 
-const Profile = ({ data }) => {
+interface ProfileProps {
+  data: {
+    id: string;
+    name: string;
+    email: string;
+    location: string;
+    follower: string;
+    public_repos: string;
+    avatar_url: string;
+  };
+}
+
+const Profile = ({ data }: ProfileProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
@@ -21,7 +33,12 @@ const Profile = ({ data }) => {
   );
 };
 
-const Title = ({ title, data }) => {
+interface TitleProps {
+  title: String;
+  data: String;
+}
+
+const Title = ({ title, data }: TitleProps) => {
   return (
     <div className={styles.titleContainer}>
       <p>{title}</p>
