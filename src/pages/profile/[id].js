@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import styles from "../../styles/pages/ProfilePage.module.css";
+import COOKIE from "js-cookie";
 import Profile from "../../components/Profile";
 import RepositoryList from "../../components/RepositoryList";
-import { useRouter } from "next/router";
-import COOKIE from "js-cookie";
-import { useEffect } from "react";
 
 const index = ({ data, setGitUsers }) => {
   let get_git_users = setGitUsers.length ? JSON.parse(setGitUsers) : [];
@@ -12,6 +11,10 @@ const index = ({ data, setGitUsers }) => {
   const router = useRouter();
 
   useEffect(() => {
+    if (data) {
+      fetchRepos(data.login);
+    }
+
     let user_data = {
       avatar: data.avatar_url,
       name: data.name,
@@ -23,12 +26,6 @@ const index = ({ data, setGitUsers }) => {
     const git_users = get_git_users ? JSON.stringify(get_git_users) : null;
 
     COOKIE.set("git_users", git_users);
-  }, [data]);
-
-  useEffect(() => {
-    if (data) {
-      fetchRepos(data.login);
-    }
   }, [data]);
 
   const fetchRepos = async (name) => {
