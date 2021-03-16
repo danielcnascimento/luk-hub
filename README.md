@@ -1,6 +1,8 @@
-<h1 align="center">🔍 LukHub 😸</h1>
+<p align="center">
+  <img align="center"  alt="inspectocat" width="250px" src="https://github.com/danielcnascimento/luk-hub/blob/main/public/luk-hub-gallery/inspectocat.png" />
+</p>
 
-<img align="center"  alt="inspectocat" width="30px" src="" />
+<h1 align="center">🔍 LukHub 😸</h1>
 
 <p align="center">
 
@@ -38,9 +40,9 @@
 </p>
 
 <p align="center">
-  <img align="center" src="https://trello-attachments.s3.amazonaws.com/5db8df629e82fa748b5ecf01/5fe1344539cceb678ab72bcc/67f6672fdd0267e8a0a48a179f66b2ad/luk-hub-homepage-mockup_dell.png" alt="luk-hub homepage" width="60%"/>
+  <img align="center" src="https://trello-attachments.s3.amazonaws.com/5db8df629e82fa748b5ecf01/5fe1344539cceb678ab72bcc/67f6672fdd0267e8a0a48a179f66b2ad/luk-hub-homepage-mockup_dell.png" alt="luk-hub homepage" width="50%"/>
   
-  <img align="center" src="" alt="luk-hub homepage" width="60%" align="right" />
+  <img align="center" src="https://github.com/danielcnascimento/luk-hub/blob/main/public/luk-hub-gallery/KukHub%20-%20functionalities.gif" alt="luk-hub homepage" width="40%" align="right" />
 </p>
 
 <h2 id="tecnologias"> 🐾 Tecnologias - technologies </h2>
